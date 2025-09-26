@@ -2,110 +2,359 @@
   "name": "OSINT",
   "children": [
     {
-      "name": "Natural Language Processing (NLP)",
+      "name": "AI",
       "children": [
         {
-          "name": "GPT-3",
-          "url": "https://beta.openai.com/"
+          "name": "Natural Language Processing (NLP)",
+          "children": [
+            {
+              "name": "GPT-3",
+              "url": "https://beta.openai.com/"
+            },
+            {
+              "name": "Hugging Face",
+              "url": "https://huggingface.co/"
+            },
+            {
+              "name": "Wordtune",
+              "url": "https://www.wordtune.com/"
+            }
+          ]
         },
         {
-          "name": "Hugging Face",
-          "url": "https://huggingface.co/"
+          "name": "Computer Vision",
+          "children": [
+            {
+              "name": "Google Vision AI",
+              "url": "https://cloud.google.com/vision"
+            },
+            {
+              "name": "Clarifai",
+              "url": "https://www.clarifai.com/"
+            }
+          ]
         },
         {
-          "name": "Wordtune",
-          "url": "https://www.wordtune.com/"
+          "name": "Machine Learning Platforms",
+          "children": [
+            {
+              "name": "TensorFlow",
+              "url": "https://www.tensorflow.org/"
+            },
+            {
+              "name": "PyTorch",
+              "url": "https://pytorch.org/"
+            }
+          ]
+        },
+        {
+          "name": "AI for Business",
+          "children": [
+            {
+              "name": "IBM Watson",
+              "url": "https://www.ibm.com/watson"
+            },
+            {
+              "name": "Salesforce Einstein",
+              "url": "https://www.salesforce.com/products/einstein/ai/"
+            }
+          ]
+        },
+        {
+          "name": "AI Chatbots / Assistants",
+          "children": [
+            {
+              "name": "Dialogflow",
+              "url": "https://dialogflow.cloud.google.com/"
+            },
+            {
+              "name": "Chatfuel",
+              "url": "https://chatfuel.com/"
+            },
+            {
+              "name": "YouChat / You.com",
+              "url": "https://you.com/"
+            }
+          ]
+        },
+        {
+          "name": "Directories & Aggregators",
+          "children": [
+            {
+              "name": "Toolnest.ai",
+              "url": "https://toolnest.ai/"
+            },
+            {
+              "name": "SimplifyAITools",
+              "url": "https://simplifyaitools.com/"
+            },
+            {
+              "name": "TopAISite",
+              "url": "https://www.topaisite.com/"
+            },
+            {
+              "name": "Directories BestAI Tools",
+              "url": "https://directories.bestaitools.com/"
+            },
+            {
+              "name": "Future‑Pedia",
+              "url": "https://www.future‑pedia.com/"
+            }
+          ]
+        },
+        {
+          "name": "Multi‑model / Unified Workspaces",
+          "children": [
+            {
+              "name": "Lumio AI",
+              "url": "https://www.lumioai.tech/"
+            }
+          ]
         }
       ]
     },
     {
-      "name": "Computer Vision",
+      "name": "Cryptography",
       "children": [
         {
-          "name": "Google Vision AI",
-          "url": "https://cloud.google.com/vision"
+          "name": "OpenSSL",
+          "url": "https://www.openssl.org/"
         },
         {
-          "name": "Clarifai",
-          "url": "https://www.clarifai.com/"
+          "name": "GnuPG (GPG)",
+          "url": "https://gnupg.org/"
+        },
+        {
+          "name": "libsodium",
+          "url": "https://libsodium.org/"
+        },
+        {
+          "name": "Bouncy Castle",
+          "url": "https://www.bouncycastle.org/"
+        },
+        {
+          "name": "cryptography (Python library)",
+          "url": "https://cryptography.io/"
+        },
+        {
+          "name": "PyCryptodome",
+          "url": "https://www.pycryptodome.org/"
+        },
+        {
+          "name": "Crypto++ Library",
+          "url": "https://www.cryptopp.com/"
+        },
+        {
+          "name": "Hashcat (password-recovery / cracking tool)",
+          "url": "https://hashcat.net/hashcat/"
+        },
+        {
+          "name": "Argon2 (PHC winner)",
+          "url": "https://github.com/P-H-C/phc-winner-argon2"
+        },
+        {
+          "name": "NIST Computer Security Resource Center (crypto standards & publications)",
+          "url": "https://csrc.nist.gov/"
+        },
+        {
+          "name": "RFC Editor (IETF standards including TLS, crypto RFCs)",
+          "url": "https://www.rfc-editor.org/"
+        },
+        {
+          "name": "NaCl / TweetNaCl (original paper & reference)",
+          "url": "https://nacl.cr.yp.to/"
+        },
+        {
+          "name": "Keyczar (Google open-source crypto library)",
+          "url": "https://github.com/google/keyczar"
+        },
+        {
+          "name": "Cryptography Engineering (Bruce Schneier et al.) — publisher",
+          "url": "https://www.wiley.com/"
+        },
+        {
+          "name": "Crypto101 (free introductory book)",
+          "url": "https://crypto101.io/"
+        },
+        {
+          "name": "Let's Encrypt (free TLS certificates)",
+          "url": "https://letsencrypt.org/"
         }
       ]
     },
     {
-      "name": "Machine Learning Platforms",
+      "name": "Hashing",
       "children": [
         {
-          "name": "TensorFlow",
-          "url": "https://www.tensorflow.org/"
+          "name": "CrackStation",
+          "url": "https://crackstation.net/"
         },
         {
-          "name": "PyTorch",
-          "url": "https://pytorch.org/"
+          "name": "Hashes.org",
+          "url": "https://hashes.org/"
+        },
+        {
+          "name": "HashKiller",
+          "url": "https://hashkiller.co.uk/"
+        },
+        {
+          "name": "OnlineHashCrack",
+          "url": "https://www.onlinehashcrack.com/"
+        },
+        {
+          "name": "MD5Decrypt",
+          "url": "https://md5decrypt.net/en/"
+        },
+        {
+          "name": "MD5 Hash Generator",
+          "url": "https://www.md5hashgenerator.com/"
+        },
+        {
+          "name": "Hash Toolkit",
+          "url": "https://hashtoolkit.com/"
+        },
+        {
+          "name": "Hashes.com — Online Decrypt",
+          "url": "https://hashes.com/en/decrypt-online"
+        },
+        {
+          "name": "OnlineHashTools (collection of hash tools)",
+          "url": "https://onlinehtools.com/hash"
+        },
+        {
+          "name": "RainbowCrack (rainbow table tool)",
+          "url": "http://project-rainbowcrack.com/"
+        },
+        {
+          "name": "Hashcat (password-recovery / cracking tool)",
+          "url": "https://hashcat.net/hashcat/"
+        },
+        {
+          "name": "emn178 — Online MD5/SHA1/CRC tools (GitHub-hosted pages)",
+          "url": "https://emn178.github.io/online-tools/"
         }
       ]
     },
     {
-      "name": "AI for Business",
+      "name": "Social Media",
       "children": [
-        {
-          "name": "IBM Watson",
-          "url": "https://www.ibm.com/watson"
-        },
-        {
-          "name": "Salesforce Einstein",
-          "url": "https://www.salesforce.com/products/einstein/ai/"
-        }
+        { "name": "Facebook", "url": "https://www.facebook.com/" },
+        { "name": "X (formerly Twitter)", "url": "https://x.com/" },
+        { "name": "Instagram", "url": "https://www.instagram.com/" },
+        { "name": "LinkedIn", "url": "https://www.linkedin.com/" },
+        { "name": "TikTok", "url": "https://www.tiktok.com/" },
+        { "name": "Reddit", "url": "https://www.reddit.com/" },
+        { "name": "YouTube", "url": "https://www.youtube.com/" },
+        { "name": "Snapchat", "url": "https://www.snapchat.com/" },
+        { "name": "Pinterest", "url": "https://www.pinterest.com/" },
+        { "name": "Tumblr", "url": "https://www.tumblr.com/" },
+        { "name": "VKontakte (VK)", "url": "https://vk.com/" },
+        { "name": "Sina Weibo", "url": "https://www.weibo.com/" },
+        { "name": "Telegram (web/profiles via t.me)", "url": "https://telegram.org/" },
+        { "name": "Discord", "url": "https://discord.com/" },
+        { "name": "Mastodon (example instance)", "url": "https://mastodon.social/" },
+        { "name": "Gab", "url": "https://gab.com/" },
+        { "name": "Parler", "url": "https://parler.com/" },
+        { "name": "Truth Social", "url": "https://www.truthsocial.com/" },
+        { "name": "Nextdoor", "url": "https://nextdoor.com/" },
+        { "name": "Meetup", "url": "https://www.meetup.com/" },
+        { "name": "Quora", "url": "https://www.quora.com/" },
+        { "name": "Medium", "url": "https://medium.com/" },
+        { "name": "WhatsApp (web/info)", "url": "https://www.whatsapp.com/" },
+        { "name": "Signal (info/download)", "url": "https://signal.org/" },
+        { "name": "Telegram Web (direct link)", "url": "https://t.me/" }
       ]
     },
     {
-      "name": "AI Chatbots / Assistants",
+      "name": "Gathering Information",
       "children": [
-        {
-          "name": "Dialogflow",
-          "url": "https://dialogflow.cloud.google.com/"
-        },
-        {
-          "name": "Chatfuel",
-          "url": "https://chatfuel.com/"
-        },
-        {
-          "name": "YouChat / You.com",
-          "url": "https://you.com/"
-        }
+        { "name": "Shodan", "url": "https://www.shodan.io/" },
+        { "name": "Censys", "url": "https://censys.io/" },
+        { "name": "ZoomEye", "url": "https://www.zoomeye.org/" },
+        { "name": "BinaryEdge", "url": "https://www.binaryedge.io/" },
+        { "name": "GreyNoise", "url": "https://www.greynoise.io/" },
+        { "name": "VirusTotal", "url": "https://www.virustotal.com/" },
+        { "name": "urlscan.io", "url": "https://urlscan.io/" },
+        { "name": "BuiltWith", "url": "https://builtwith.com/" },
+        { "name": "Netcraft", "url": "https://www.netcraft.com/" },
+        { "name": "SecurityTrails", "url": "https://securitytrails.com/" },
+        { "name": "DNS Dumpster", "url": "https://dnsdumpster.com/" },
+        { "name": "Robtex", "url": "https://www.robtex.com/" },
+        { "name": "crt.sh (Certificate transparency search)", "url": "https://crt.sh/" },
+        { "name": "Archive.org", "url": "https://archive.org/" },
+        { "name": "Wayback Machine", "url": "https://web.archive.org/" },
+        { "name": "Have I Been Pwned", "url": "https://haveibeenpwned.com/" },
+        { "name": "Pastebin", "url": "https://pastebin.com/" },
+        { "name": "TheHarvester (GitHub)", "url": "https://github.com/laramies/theHarvester" },
+        { "name": "recon-ng (GitHub)", "url": "https://github.com/lanmaster53/recon-ng" },
+        { "name": "Maltego", "url": "https://www.maltego.com/" },
+        { "name": "SpiderFoot", "url": "https://www.spiderfoot.net/" },
+        { "name": "OSINT Framework", "url": "https://osintframework.com/" },
+        { "name": "IntelTechniques", "url": "https://inteltechniques.com/" },
+        { "name": "Pipl (people search)", "url": "https://pipl.com/" },
+        { "name": "Social Searcher", "url": "https://www.social-searcher.com/" },
+        { "name": "Hunter (email discovery)", "url": "https://hunter.io/" },
+        { "name": "Exploit Database — Google Hacking DB", "url": "https://www.exploit-db.com/google-hacking-database" },
+        { "name": "ThreatCrowd", "url": "https://www.threatcrowd.org/" },
+        { "name": "Whois.com", "url": "https://www.whois.com/" },
+        { "name": "ICANN WHOIS", "url": "https://whois.icann.org/" }
       ]
     },
     {
-      "name": "Directories & Aggregators",
+      "name": "Geolocation",
       "children": [
-        {
-          "name": "Toolnest.ai",
-          "url": "https://toolnest.ai/"
-        },
-        {
-          "name": "SimplifyAITools",
-          "url": "https://simplifyaitools.com/"
-        },
-        {
-          "name": "TopAISite",
-          "url": "https://www.topaisite.com/"
-        },
-        {
-          "name": "Directories BestAI Tools",
-          "url": "https://directories.bestaitools.com/"
-        },
-        {
-          "name": "Future‑Pedia",
-          "url": "https://www.future‑pedia.com/"
-        }
+        { "name": "Google Maps", "url": "https://maps.google.com/" },
+        { "name": "Google Earth", "url": "https://earth.google.com/" },
+        { "name": "OpenStreetMap", "url": "https://www.openstreetmap.org/" },
+        { "name": "Bing Maps", "url": "https://www.bing.com/maps" },
+        { "name": "Mapbox", "url": "https://www.mapbox.com/" },
+        { "name": "HERE WeGo / HERE Maps", "url": "https://wego.here.com/" },
+        { "name": "Nominatim (OpenStreetMap geocoding)", "url": "https://nominatim.openstreetmap.org/" },
+        { "name": "ArcGIS Online", "url": "https://www.arcgis.com/" },
+        { "name": "MaxMind (GeoIP databases & services)", "url": "https://www.maxmind.com/" },
+        { "name": "IPinfo (IP geolocation)", "url": "https://ipinfo.io/" },
+        { "name": "ipstack (IP to location API)", "url": "https://ipstack.com/" },
+        { "name": "ip-api (free IP geolocation API)", "url": "http://ip-api.com/" },
+        { "name": "IPLocation.net (IP geolocation lookups)", "url": "https://www.iplocation.net/" },
+        { "name": "GeoIPTool", "url": "https://geoiptool.com/" },
+        { "name": "WhatIsMyIPAddress (IP lookup)", "url": "https://whatismyipaddress.com/" },
+        { "name": "GeoNames (geographical database)", "url": "https://www.geonames.org/" },
+        { "name": "Mozilla Location Service (crowdsourced cell/Wi‑Fi geolocation)", "url": "https://location.services.mozilla.com/" },
+        { "name": "OpenCellID (cell tower database)", "url": "https://opencellid.org/" },
+        { "name": "TinEye (reverse image search)", "url": "https://tineye.com/" },
+        { "name": "Google Reverse Image Search", "url": "https://images.google.com/" },
+        { "name": "Yandex Images (reverse search)", "url": "https://yandex.com/images/" },
+        { "name": "Mapillary (street-level imagery & photo map)", "url": "https://www.mapillary.com/" },
+        { "name": "GPS Visualizer (plot GPS data / convert formats)", "url": "https://www.gpsvisualizer.com/" },
+        { "name": "ExifTool (read/write image EXIF metadata)", "url": "https://exiftool.org/" },
+        { "name": "Jeffrey's Exif Viewer", "url": "https://exif.regex.info/exif.cgi" },
+        { "name": "What3words (3‑word geocoding)", "url": "https://what3words.com/" },
+        { "name": "OpenRouteService (routing & geospatial API)", "url": "https://openrouteservice.org/" },
+        { "name": "FlightRadar24 (live flight tracking / geolocation of aircraft)", "url": "https://www.flightradar24.com/" },
+        { "name": "MarineTraffic (ship positions & AIS)", "url": "https://www.marinetraffic.com/" }
       ]
     },
     {
-      "name": "Multi‑model / Unified Workspaces",
+      "name": "AI Tools",
       "children": [
-        {
-          "name": "Lumio AI",
-          "url": "https://www.lumioai.tech/"
-        }
+        { "name": "GPT-3", "url": "https://beta.openai.com/" },
+        { "name": "Hugging Face", "url": "https://huggingface.co/" },
+        { "name": "Wordtune", "url": "https://www.wordtune.com/" },
+        { "name": "Google Vision AI", "url": "https://cloud.google.com/vision" },
+        { "name": "Clarifai", "url": "https://www.clarifai.com/" },
+        { "name": "TensorFlow", "url": "https://www.tensorflow.org/" },
+        { "name": "PyTorch", "url": "https://pytorch.org/" },
+        { "name": "IBM Watson", "url": "https://www.ibm.com/watson" },
+        { "name": "Salesforce Einstein", "url": "https://www.salesforce.com/products/einstein/ai/" },
+        { "name": "Dialogflow", "url": "https://dialogflow.cloud.google.com/" },
+        { "name": "Chatfuel", "url": "https://chatfuel.com/" },
+        { "name": "YouChat / You.com", "url": "https://you.com/" },
+        { "name": "Toolnest.ai", "url": "https://toolnest.ai/" },
+        { "name": "SimplifyAITools", "url": "https://simplifyaitools.com/" },
+        { "name": "TopAISite", "url": "https://www.topaisite.com/" },
+        { "name": "Directories BestAI Tools", "url": "https://directories.bestaitools.com/" },
+        { "name": "Future‑Pedia", "url": "https://www.future‑pedia.com/" },
+        { "name": "Lumio AI", "url": "https://www.lumioai.tech/" }
       ]
     }
   ]

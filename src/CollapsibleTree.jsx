@@ -98,14 +98,15 @@ export default function CollapsibleTree({ data }) {
                 .on('click', (event, d) => {
                     toggle(d); 
                     update(d);     
+                    handleClick(d); // Call custom handleClick function
                 });
 
-            // Circle
+            // Add circle to each node
             nodeEnter.append('circle')
                 .attr('r', 1e-6)
                 .style('fill', d => d._children ? 'lightsteelblue' : '#fff');
 
-            // Text
+            // Add text to each node
             nodeEnter.append('text')
                 .attr('x', d => d.children || d._children ? -10 : 10)
                 .attr('dy', '.35em')
@@ -173,6 +174,14 @@ export default function CollapsibleTree({ data }) {
                 d.x0 = d.x;
                 d.y0 = d.y;
             });
+        };
+
+        // Function to handle node click and navigate
+        const handleClick = (d) => {
+            if (d.data.url) {
+                // Open the URL in a new tab
+                window.open(d.data.url, '_blank');
+            }
         };
 
         // Initial rendering

@@ -1,0 +1,41 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  outline: none;
+  user-select: none;
+  /* overflow: hidden; */
+}
+
+html, body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000;
+  color: #0f0;
+  -webkit-font-smoothing: antialiased;
+  width: 100%;
+  min-height: 100vh;
+}
+
+.root {
+  padding: 10px;
+  overflow: auto;
+  width: auto;
+  height: auto;
+}
+
+.link {
+  fill: none;
+  stroke: #0f0;
+  stroke-width: 1.5px;
+}
+
+.node circle {
+  cursor: pointer;
+  stroke: #0f0;
+  stroke-width: 1.5px;
+}
+
+.node a text {
+  cursor: pointer;
+}

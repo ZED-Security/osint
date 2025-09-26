@@ -1,0 +1,112 @@
+{
+  "name": "OSINT",
+  "children": [
+    {
+      "name": "Natural Language Processing (NLP)",
+      "children": [
+        {
+          "name": "GPT-3",
+          "url": "https://beta.openai.com/"
+        },
+        {
+          "name": "Hugging Face",
+          "url": "https://huggingface.co/"
+        },
+        {
+          "name": "Wordtune",
+          "url": "https://www.wordtune.com/"
+        }
+      ]
+    },
+    {
+      "name": "Computer Vision",
+      "children": [
+        {
+          "name": "Google Vision AI",
+          "url": "https://cloud.google.com/vision"
+        },
+        {
+          "name": "Clarifai",
+          "url": "https://www.clarifai.com/"
+        }
+      ]
+    },
+    {
+      "name": "Machine Learning Platforms",
+      "children": [
+        {
+          "name": "TensorFlow",
+          "url": "https://www.tensorflow.org/"
+        },
+        {
+          "name": "PyTorch",
+          "url": "https://pytorch.org/"
+        }
+      ]
+    },
+    {
+      "name": "AI for Business",
+      "children": [
+        {
+          "name": "IBM Watson",
+          "url": "https://www.ibm.com/watson"
+        },
+        {
+          "name": "Salesforce Einstein",
+          "url": "https://www.salesforce.com/products/einstein/ai/"
+        }
+      ]
+    },
+    {
+      "name": "AI Chatbots / Assistants",
+      "children": [
+        {
+          "name": "Dialogflow",
+          "url": "https://dialogflow.cloud.google.com/"
+        },
+        {
+          "name": "Chatfuel",
+          "url": "https://chatfuel.com/"
+        },
+        {
+          "name": "YouChat / You.com",
+          "url": "https://you.com/"
+        }
+      ]
+    },
+    {
+      "name": "Directories & Aggregators",
+      "children": [
+        {
+          "name": "Toolnest.ai",
+          "url": "https://toolnest.ai/"
+        },
+        {
+          "name": "SimplifyAITools",
+          "url": "https://simplifyaitools.com/"
+        },
+        {
+          "name": "TopAISite",
+          "url": "https://www.topaisite.com/"
+        },
+        {
+          "name": "Directories BestAI Tools",
+          "url": "https://directories.bestaitools.com/"
+        },
+        {
+          "name": "Future‑Pedia",
+          "url": "https://www.future‑pedia.com/"
+        }
+      ]
+    },
+    {
+      "name": "Multi‑model / Unified Workspaces",
+      "children": [
+        {
+          "name": "Lumio AI",
+          "url": "https://www.lumioai.tech/"
+        }
+      ]
+    }
+  ]
+}

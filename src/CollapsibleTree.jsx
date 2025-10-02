@@ -14,8 +14,8 @@ export default function CollapsibleTree({ data }) {
     const nodeRadius = 8;
     const nodeDepthSpacing = 200;
     const duration = 750;
-    const horizontalMargin = 60; // Increased horizontal margin
-    const verticalMargin = 40;   // Increased vertical margin
+    const horizontalMargin = 60;
+    const verticalMargin = 40;
 
     // Update dimensions on resize
     useEffect(() => {
@@ -23,8 +23,8 @@ export default function CollapsibleTree({ data }) {
             if (containerRef.current) {
                 const { clientWidth, clientHeight } = containerRef.current;
                 setDimensions({
-                    width: clientWidth,
-                    height: clientHeight
+                    width: Math.max(clientWidth, 800), // Minimum width
+                    height: Math.max(clientHeight, 600) // Minimum height
                 });
             }
         };
@@ -36,8 +36,8 @@ export default function CollapsibleTree({ data }) {
     }, []);
 
     // Calculate inner dimensions for the D3 layout
-    const innerWidth = dimensions.width - horizontalMargin * 2;
-    const innerHeight = dimensions.height - verticalMargin * 2;
+    const innerWidth = Math.max(dimensions.width - horizontalMargin * 2, 400);
+    const innerHeight = Math.max(dimensions.height - verticalMargin * 2, 300);
 
     // Function to collapse a node's children
     const collapse = useCallback((d) => {
@@ -75,6 +75,47 @@ export default function CollapsibleTree({ data }) {
         setTreeData(root);
     }, [collapse, innerHeight, data]);
 
+    // Text wrapping function to prevent text overflow
+    const wrapText = useCallback((selection, width) => {
+        selection.each(function() {
+            const text = d3.select(this);
+            const words = text.text().split(/\s+/).reverse();
+            let word;
+            let line = [];
+            let lineNumber = 0;
+            const lineHeight = 1.1;
+            const y = text.attr("y");
+            const dy = parseFloat(text.attr("dy"));
+            let tspan = text.text(null)
+                .append("tspan")
+                .attr("x", text.attr("x"))
+                .attr("y", y)
+                .attr("dy", dy + "em");
+            
+            while (word = words.pop()) {
+                line.push(word);
+                tspan.text(line.join(" "));
+                if (tspan.node().getComputedTextLength() > width) {
+                    line.pop();
+                    tspan.text(line.join(" "));
+                    line = [word];
+                    tspan = text.append("tspan")
+                        .attr("x", text.attr("x"))
+                        .attr("y", y)
+                        .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                        .text(word);
+                }
+            }
+        });
+    }, []);
+
+    // Function to handle node click and navigation
+    const handleClick = useCallback((d) => {
+        if (d.data.url) {
+            window.open(d.data.url, '_blank');
+        }
+    }, []);
+
     // D3 Visualization Logic
     useEffect(() => {
         if (!treeData || dimensions.width === 0 || dimensions.height === 0) return;
@@ -97,13 +138,6 @@ export default function CollapsibleTree({ data }) {
         const linkPathGenerator = d3.linkHorizontal()
             .x(d => d.y)
             .y(d => d.x);
-
-        // Function to handle node click and navigation
-        const handleClick = (d) => {
-            if (d.data.url) {
-                window.open(d.data.url, '_blank');
-            }
-        };
 
         // Main update function
         const update = (source) => {
@@ -133,14 +167,15 @@ export default function CollapsibleTree({ data }) {
                     update(d);     
                     handleClick(d);
                 })
-                .style('cursor', 'pointer');
+                .style('cursor', d => d.data.url ? 'pointer' : 'default');
 
             // Add circle to each node with better styling
             nodeEnter.append('circle')
                 .attr('r', 1e-6)
                 .style('fill', d => d._children ? 'lightsteelblue' : '#fff')
                 .style('stroke', 'steelblue')
-                .style('stroke-width', '2px');
+                .style('stroke-width', '2px')
+                .style('opacity', 0.9);
 
             // Add text to each node with better positioning
             nodeEnter.append('text')
@@ -153,7 +188,7 @@ export default function CollapsibleTree({ data }) {
                 .style('font-weight', 'normal')
                 .style('fill-opacity', 1e-6)
                 .style('pointer-events', 'none')
-                .call(wrapText, 120); // Wrap text to prevent overflow
+                .call(wrapText, 120);
 
             // Tooltip
             nodeEnter.append('title')
@@ -185,7 +220,7 @@ export default function CollapsibleTree({ data }) {
                 .data(links, d => d.target.id);
 
             // Enter any new links
-            link.enter().insert('path', 'g')
+            const linkEnter = link.enter().insert('path', 'g')
                 .attr('class', 'link')
                 .attr('d', d => {
                     const o = { x: source.x0, y: source.y0 };
@@ -194,14 +229,18 @@ export default function CollapsibleTree({ data }) {
                 .style('fill', 'none')
                 .style('stroke', '#ccc')
                 .style('stroke-width', '1.5px')
-                .transition()
+                .style('opacity', 0);
+
+            linkEnter.transition()
                 .duration(duration)
-                .attr('d', d => linkPathGenerator(d));
+                .attr('d', d => linkPathGenerator(d))
+                .style('opacity', 1);
 
             // Update existing links
             link.transition()
                 .duration(duration)
-                .attr('d', d => linkPathGenerator(d));
+                .attr('d', d => linkPathGenerator(d))
+                .style('opacity', 1);
 
             // Remove exiting links
             link.exit().transition()
@@ -210,6 +249,7 @@ export default function CollapsibleTree({ data }) {
                     const o = { x: source.x, y: source.y };
                     return linkPathGenerator({ source: o, target: o });
                 })
+                .style('opacity', 0)
                 .remove();
 
             // Store old positions for transitions
@@ -239,44 +279,24 @@ export default function CollapsibleTree({ data }) {
             }
         };
 
-        // Text wrapping function to prevent text overflow
-        function wrapText(selection, width) {
-            selection.each(function() {
-                const text = d3.select(this);
-                const words = text.text().split(/\s+/).reverse();
-                let word;
-                let line = [];
-                let lineNumber = 0;
-                const lineHeight = 1.1;
-                const y = text.attr("y");
-                const dy = parseFloat(text.attr("dy"));
-                let tspan = text.text(null)
-                    .append("tspan")
-                    .attr("x", text.attr("x"))
-                    .attr("y", y)
-                    .attr("dy", dy + "em");
-                
-                while (word = words.pop()) {
-                    line.push(word);
-                    tspan.text(line.join(" "));
-                    if (tspan.node().getComputedTextLength() > width) {
-                        line.pop();
-                        tspan.text(line.join(" "));
-                        line = [word];
-                        tspan = text.append("tspan")
-                            .attr("x", text.attr("x"))
-                            .attr("y", y)
-                            .attr("dy", ++lineNumber * lineHeight + dy + "em")
-                            .text(word);
-                    }
-                }
-            });
-        }
-
         // Initial rendering
         update(root);
 
-    }, [treeData, dimensions, innerWidth, innerHeight, duration, nodeDepthSpacing, collapse, toggle, horizontalMargin, verticalMargin, nodeRadius]);
+    }, [
+        treeData, 
+        dimensions, 
+        innerWidth, 
+        innerHeight, 
+        duration, 
+        nodeDepthSpacing, 
+        collapse, 
+        toggle, 
+        horizontalMargin, 
+        verticalMargin, 
+        nodeRadius,
+        wrapText,
+        handleClick
+    ]);
     
     return (
         <div 
@@ -286,27 +306,89 @@ export default function CollapsibleTree({ data }) {
                 height: '100%', 
                 position: 'relative',
                 overflow: 'auto',
-                background: '#1a1a1a'
+                background: '#1a1a1a',
+                cursor: 'grab'
+            }}
+            onMouseDown={() => {
+                containerRef.current.style.cursor = 'grabbing';
+            }}
+            onMouseUp={() => {
+                containerRef.current.style.cursor = 'grab';
+            }}
+            onMouseLeave={() => {
+                containerRef.current.style.cursor = 'grab';
             }}
         >
             <svg
                 ref={svgRef}
                 style={{ 
-                    minWidth: '100%', 
-                    minHeight: '100%',
+                    width: '100%', 
+                    height: '100%',
                     background: '#1a1a1a'
                 }}
                 width={dimensions.width}
                 height={dimensions.height}
                 preserveAspectRatio="xMidYMid meet"
             >
-                {/* Optional: Add a background for better visualization */}
                 <rect 
                     width="100%" 
                     height="100%" 
                     fill="#1a1a1a"
                 />
             </svg>
+            
+            {/* Optional: Add zoom controls */}
+            <div style={{
+                position: 'absolute',
+                top: 10,
+                right: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '5px'
+            }}>
+                <button
+                    onClick={() => {
+                        const container = containerRef.current;
+                        if (container) {
+                            container.scrollTo({
+                                left: container.scrollLeft + 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }}
+                    style={{
+                        padding: '5px 10px',
+                        background: 'steelblue',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '3px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    →
+                </button>
+                <button
+                    onClick={() => {
+                        const container = containerRef.current;
+                        if (container) {
+                            container.scrollTo({
+                                left: container.scrollLeft - 100,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }}
+                    style={{
+                        padding: '5px 10px',
+                        background: 'steelblue',
+                        color: 'white',
+                        border: 'none',
+                        borderRadius: '3px',
+                        cursor: 'pointer'
+                    }}
+                >
+                    ←
+                </button>
+            </div>
         </div>
     );
 }
